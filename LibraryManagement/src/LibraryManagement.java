@@ -26,7 +26,7 @@ public class LibraryManagement {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
+            scanner.nextLine();  
 
             switch (choice) {
                 case 1:
@@ -58,7 +58,7 @@ public class LibraryManagement {
                     String isbn = scanner.nextLine();
                     System.out.print("Enter number of copies: ");
                     int copies = scanner.nextInt();
-                    scanner.nextLine();  // Consume newline
+                    scanner.nextLine();  
                     Book newBook = new Book(title, author, isbn, copies);
                     admin.addBook(library, newBook);
                     System.out.println("Book added.");
