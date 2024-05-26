@@ -6,6 +6,7 @@ public class LibraryManagement {
         Admin admin = new Admin("admin", "password");
         Scanner scanner = new Scanner(System.in);
 
+        
         Book book1 = new Book("Book Title 1", "Author 1", "ISBN001", 5);
         Book book2 = new Book("Book Title 2", "Author 2", "ISBN002", 3);
         admin.addBook(library, book1);
@@ -35,11 +36,8 @@ public class LibraryManagement {
                     String memberIdToIssue = scanner.nextLine();
                     Book bookToIssue = library.findBook(isbnToIssue);
                     Member memberToIssue = library.findMember(memberIdToIssue);
-                    if (admin.issueLoan(library, bookToIssue, memberToIssue)) {
-                        System.out.println("Book issued.");
-                    } else {
-                        System.out.println("Failed to issue book.");
-                    }
+                    admin.issueLoan(library, bookToIssue, memberToIssue);
+                    System.out.println("Book issued.");
                     break;
                 case 2:
                     System.out.print("Enter ISBN of the book to return: ");
@@ -48,11 +46,8 @@ public class LibraryManagement {
                     String memberIdToReturn = scanner.nextLine();
                     Book bookToReturn = library.findBook(isbnToReturn);
                     Member memberToReturn = library.findMember(memberIdToReturn);
-                    if (admin.returnLoan(library, bookToReturn, memberToReturn)) {
-                        System.out.println("Book returned.");
-                    } else {
-                        System.out.println("Failed to return book.");
-                    }
+                    admin.returnLoan(library, bookToReturn, memberToReturn);
+                    System.out.println("Book returned.");
                     break;
                 case 3:
                     System.out.print("Enter title of the book: ");
@@ -82,7 +77,9 @@ public class LibraryManagement {
                     return;
                 default:
                     System.out.println("Invalid choice. Try again.");
+                }
             }
         }
     }
-}
+
+        

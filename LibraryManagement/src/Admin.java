@@ -23,12 +23,12 @@ public class Admin {
         this.password = password;
     }
 
-    public boolean issueLoan(Library library, Book book, Member member) {
-        return library.issueLoan(book, member);
+    public void issueLoan(Library library, Book book, Member member) {
+        library.issueLoan(book, member);
     }
 
-    public boolean returnLoan(Library library, Book book, Member member) {
-        return library.returnLoan(book, member);
+    public void returnLoan(Library library, Book book, Member member) {
+        library.returnLoan(book, member);
     }
 
     public void addBook(Library library, Book book) {
