@@ -6,7 +6,21 @@ public class LibraryManagement {
         Admin admin = new Admin("admin", "password");
         Scanner scanner = new Scanner(System.in);
 
-        
+        // Authenticate Admin
+        boolean authenticated = false;
+        while (!authenticated) {
+            System.out.print("Enter admin username: ");
+            String username = scanner.nextLine();
+            System.out.print("Enter admin password: ");
+            String password = scanner.nextLine();
+
+            if (admin.authenticate(username, password)) {
+                authenticated = true;
+            } else {
+                System.out.println("Invalid credentials. Please try again.");
+            }
+        }
+
         Book book1 = new Book("Book Title 1", "Author 1", "ISBN001", 5);
         Book book2 = new Book("Book Title 2", "Author 2", "ISBN002", 3);
         admin.addBook(library, book1);
@@ -26,7 +40,7 @@ public class LibraryManagement {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine();  
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -36,8 +50,11 @@ public class LibraryManagement {
                     String memberIdToIssue = scanner.nextLine();
                     Book bookToIssue = library.findBook(isbnToIssue);
                     Member memberToIssue = library.findMember(memberIdToIssue);
-                    admin.issueLoan(library, bookToIssue, memberToIssue);
-                    System.out.println("Book issued.");
+                    if (admin.issueLoan(library, bookToIssue, memberToIssue)) {
+                        System.out.println("Book issued.");
+                    } else {
+                        System.out.println("Failed to issue book.");
+                    }
                     break;
                 case 2:
                     System.out.print("Enter ISBN of the book to return: ");
@@ -46,8 +63,11 @@ public class LibraryManagement {
                     String memberIdToReturn = scanner.nextLine();
                     Book bookToReturn = library.findBook(isbnToReturn);
                     Member memberToReturn = library.findMember(memberIdToReturn);
-                    admin.returnLoan(library, bookToReturn, memberToReturn);
-                    System.out.println("Book returned.");
+                    if (admin.returnLoan(library, bookToReturn, memberToReturn)) {
+                        System.out.println("Book returned.");
+                    } else {
+                        System.out.println("Failed to return book.");
+                    }
                     break;
                 case 3:
                     System.out.print("Enter title of the book: ");
@@ -58,7 +78,7 @@ public class LibraryManagement {
                     String isbn = scanner.nextLine();
                     System.out.print("Enter number of copies: ");
                     int copies = scanner.nextInt();
-                    scanner.nextLine();  
+                    scanner.nextLine();
                     Book newBook = new Book(title, author, isbn, copies);
                     admin.addBook(library, newBook);
                     System.out.println("Book added.");
@@ -77,9 +97,7 @@ public class LibraryManagement {
                     return;
                 default:
                     System.out.println("Invalid choice. Try again.");
-                }
             }
         }
     }
-
-        
+}

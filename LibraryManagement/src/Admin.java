@@ -23,12 +23,16 @@ public class Admin {
         this.password = password;
     }
 
-    public void issueLoan(Library library, Book book, Member member) {
-        library.issueLoan(book, member);
+    public boolean authenticate(String username, String password) {
+        return this.username.equals(username) && this.password.equals(password);
     }
 
-    public void returnLoan(Library library, Book book, Member member) {
-        library.returnLoan(book, member);
+    public boolean issueLoan(Library library, Book book, Member member) {
+        return library.issueLoan(book, member);
+    }
+
+    public boolean returnLoan(Library library, Book book, Member member) {
+        return library.returnLoan(book, member);
     }
 
     public void addBook(Library library, Book book) {
