@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class LibraryManagement {
     public static void main(String[] args) {
         Library library = new Library();
-        Admin admin = new Admin("admin", "password");
+        Admin admin = new Admin("admin", "25", "admin");
         Scanner scanner = new Scanner(System.in);
 
-        // Authenticate Admin
+        
         boolean authenticated = false;
         while (!authenticated) {
             System.out.print("Enter admin username: ");

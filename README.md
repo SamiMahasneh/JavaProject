@@ -1,5 +1,5 @@
 # JavaProject
-Certainly! Here are the steps to create a library management program using Object-Oriented Programming (OOP) for beginners, without the code:
+
 
 ### 1. Understand the Requirements
 - **Purpose**: Manage books, members, and borrowing records in a library.
@@ -56,4 +56,3 @@ Start by implementing the basic operations needed to interact with the system:
 - Seek feedback from users or peers to make improvements.
 - Add new features based on evolving requirements or feedback.
 
-By following these steps, you can create a basic library management program using the principles of Object-Oriented Programming, and gradually enhance it with more features and better usability.

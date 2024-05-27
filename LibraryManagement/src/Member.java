@@ -1,31 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Member {
-    private String name;
-    private String memberId;
+public class Member extends User {
     private List<Book> borrowedBooks;
 
-    public Member(String name, String memberId) {
-        this.name = name;
-        this.memberId = memberId;
+    public Member(String name, String id) {
+        super(name, id);
         this.borrowedBooks = new ArrayList<>();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
     }
 
     public List<Book> getBorrowedBooks() {
@@ -45,4 +26,12 @@ public class Member {
             borrowedBooks.remove(book);
         }
     }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("Member Name: " + name);
+        System.out.println("Member ID: " + id);
+    }
+
+    
 }

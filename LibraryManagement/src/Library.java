@@ -31,7 +31,7 @@ public class Library {
 
     public Member findMember(String memberId) {
         for (Member member : members) {
-            if (member.getMemberId().equals(memberId)) {
+            if (member.getId().equals(memberId)) {
                 return member;
             }
         }
